@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GKK — Welcome & Plans & Login</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#ff8a65">
+
+</head>
+<body>
+  <main class="stage" id="stage" role="main" aria-live="polite">
+
+    <!-- Page 1: Welcome -->
+    <section class="page page-1" id="page1" aria-labelledby="welcomeTitle">
+      <div class="card">
+        <div class="hero">
+          <h1 id="welcomeTitle" class="title">Welcome</h1>
+          <p class="subtitle"><span class="brand">GKK</span>: Ghar ka Khaana</p>
+
+          <div class="bowl-wrap" aria-hidden="false">
+            <!-- SVG Bowl -->
+            <svg class="bowl-svg" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bowl of home-cooked food with steam">
+              <defs>
+                <linearGradient id="bowlGradient" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#fff5e6"/>
+                  <stop offset="100%" stop-color="#ffecd2"/>
+                </linearGradient>
+                <linearGradient id="foodGradient" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#ffb085"/>
+                  <stop offset="100%" stop-color="#ff8a65"/>
+                </linearGradient>
+              </defs>
+              <ellipse cx="200" cy="170" rx="150" ry="26" fill="#fff" opacity="0.08"/>
+              <path d="M60 150 Q200 30 340 150 Q305 185 95 185 Z" fill="url(#bowlGradient)"/>
+              <path d="M100 150 Q200 80 300 150 Q260 125 140 125 Z" fill="url(#foodGradient)"/>
+              <circle cx="215" cy="120" r="8" fill="#7BB662"/>
+              <circle cx="185" cy="112" r="6" fill="#7BB662"/>
+              <circle cx="200" cy="130" r="4" fill="#A1D884"/>
+              <rect x="255" y="90" width="95" height="10" rx="5" transform="rotate(28 255 90)" fill="#E5E5E5" opacity="0.9"/>
+              <g class="steam" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.9">
+                <path class="s1" d="M160 60 C160 40 180 40 180 20" />
+                <path class="s2" d="M200 70 C200 45 220 45 220 25" />
+                <path class="s3" d="M240 60 C240 40 260 40 260 20" />
+              </g>
+            </svg>
+          </div>
+
+          <p class="tagline">Simple. Honest. Home-cooked.</p>
+        </div>
+      </div>
+
+      <button id="nextBtn" class="next-btn" aria-label="Next — meal plan info">
+        <span class="btn-text">Next</span>
+        <svg class="btn-arrow" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+          <path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="btn-ring" aria-hidden="true"></span>
+      </button>
+    </section>
+
+    <!-- Page 2: Meal Plan Info -->
+    <section class="page page-2" id="page2" aria-labelledby="plansTitle" aria-hidden="true">
+      <div class="card info-card" id="infoCard">
+        <div class="plans-header" style="width:100%;display:flex;align-items:center;gap:12px;justify-content:space-between;">
+          <button id="backBtn" class="icon-back" aria-label="Back to welcome">← Back</button>
+        </div>
+
+        <h2 id="plansTitle" class="plans-title">Choose from a wide range of meal plans</h2>
+        <p class="plans-sub">We offer flexible plans tailored to different tastes and needs:</p>
+
+        <ul class="plans-list" id="plansList" aria-hidden="false">
+          <li class="plans-item">Vegetarian meals (seasonal & traditional)</li>
+          <li class="plans-item">Non-vegetarian meals (fresh & hygienic)</li>
+          <li class="plans-item">Combo plans for families</li>
+          <li class="plans-item">Customizable plans — choose dishes & schedules</li>
+          <li class="plans-item">Daily, weekly, and monthly subscriptions</li>
+          <li class="plans-item">Special diets: low-salt, diabetic-friendly, and more</li>
+        </ul>
+
+        <div style="width:100%;display:flex;justify-content:flex-end;">
+          <button id="continueBtn" class="continue-btn">Continue</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Page 3: Login / Signup -->
+    <section class="page page-3" id="page3" aria-labelledby="loginTitle" aria-hidden="true">
+      <div class="card login-card">
+        <div class="login-header" style="width:100%; display:flex; align-items:center; gap:12px; justify-content:space-between;">
+          <button id="backLoginBtn" class="icon-back" aria-label="Back to meal plans info">← Back</button>
+          <h2 id="loginTitle" class="plans-title">Login / Sign Up</h2>
+        </div>
+
+        <p class="plans-sub">Enter your mobile number to continue with OTP verification</p>
+
+        <div class="login-form">
+          <input type="tel" id="mobileInput" placeholder="Enter mobile number" class="input-field" aria-label="Mobile number" />
+          <button id="sendOtpBtn" class="continue-btn">Send OTP</button>
+        </div>
+
+        <div id="otpSection" class="otp-section" aria-hidden="true">
+          <p class="plans-sub">Enter OTP sent to your mobile</p>
+          <input type="text" id="otpInput" placeholder="Enter OTP" class="input-field" aria-label="OTP" />
+          <button id="verifyOtpBtn" class="continue-btn">Verify OTP</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js')
+      .then(() => console.log('Service Worker Registered'))
+      .catch(err => console.log(err));
+  }
+</script>
+
+  <script src="script.js"></script>
+</body>
+</html>

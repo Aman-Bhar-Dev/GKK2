@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GKK — Home</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="home.css">
+</head>
+<body>
+  <div class="page-wrap">
+
+    <!-- Sticky Top Nav -->
+    <header class="topnav" role="banner">
+      <div class="nav-inner">
+        <div class="brand">
+          <svg class="logo" width="36" height="36" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#ffb085"/><path d="M7 14c2-3 6-3 8 0" stroke="#fff" stroke-width="1.2" stroke-linecap="round" fill="none"/></svg>
+          <span class="brand-name">GKK</span>
+        </div>
+
+        <div class="search">
+          <input type="search" placeholder="Search dishes or plans" aria-label="Search dishes or plans">
+        </div>
+
+        <nav class="nav-actions" aria-label="Main actions">
+          <button id="cartBtn" class="icon-btn" aria-label="Cart">🧺</button>
+          <button class="profile-btn" aria-label="Profile">A</button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-left">
+        <h1 class="hero-title">Welcome to <span class="gkk">GKK</span></h1>
+        <p class="hero-sub">Home-cooked meals, delivered fresh — daily, weekly, or monthly. Choose from veg, non-veg, combos, & customizable plans.</p>
+      </div>
+      <div class="hero-right">
+        <svg class="hero-ill" viewBox="0 0 400 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of home cooked food">
+          <defs>
+            <linearGradient id="hgrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ffb085"/>
+              <stop offset="1" stop-color="#ff8a65"/>
+            </linearGradient>
+          </defs>
+          <rect x="20" y="60" width="360" height="220" rx="24" fill="url(#hgrad)" opacity="0.12"/>
+          <g transform="translate(40,40)">
+            <ellipse cx="160" cy="210" rx="120" ry="22" fill="#fff" opacity="0.08"/>
+            <path d="M20 200 Q160 50 300 200 Q255 230 65 230 Z" fill="#fff" opacity="0.95"/>
+            <path d="M70 200 Q160 110 250 200 Q220 180 120 180 Z" fill="#ffb085"/>
+            <circle cx="150" cy="150" r="10" fill="#7BB662"/>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Meal Plans Grid -->
+    <section id="plans" class="plans">
+      <div class="section-inner">
+        <h2 class="section-title">Meal Plans</h2>
+        <p class="section-sub">Click on a plan to view details & subscribe</p>
+        <div class="plans-grid">
+          <!-- Plan Card -->
+          <article class="plan-card" data-name="Family Plan" data-price="₹349/day" data-portions="2 mains + 2 sides — Portions for 3–4" data-duration="Daily / Weekly / Monthly">
+            <div class="plan-media">
+              <svg viewBox="0 0 200 120" class="plan-thumb"><rect x="0" y="0" width="200" height="120" rx="12" fill="#ffd8c4"/></svg>
+            </div>
+            <div class="plan-body">
+              <h3 class="plan-name">Family Plan</h3>
+              <div class="plan-actions">
+                <button class="btn btn-outline view-details">View Details</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="plan-card" data-name="Lite Plan" data-price="₹149/day" data-portions="1 light meal • Healthy options" data-duration="Daily / Weekly">
+            <div class="plan-media">
+              <svg viewBox="0 0 200 120" class="plan-thumb"><rect x="0" y="0" width="200" height="120" rx="12" fill="#fce7ff"/></svg>
+            </div>
+            <div class="plan-body">
+              <h3 class="plan-name">Lite Plan</h3>
+              <div class="plan-actions">
+                <button class="btn btn-outline view-details">View Details</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="plan-card" data-name="Combo Saver" data-price="₹429/day" data-portions="Mix veg & non-veg • Family portions" data-duration="Daily / Weekly / Monthly">
+            <div class="plan-media">
+              <svg viewBox="0 0 200 120" class="plan-thumb"><rect x="0" y="0" width="200" height="120" rx="12" fill="#fff5e6"/></svg>
+            </div>
+            <div class="plan-body">
+              <h3 class="plan-name">Combo Saver</h3>
+              <div class="plan-actions">
+                <button class="btn btn-outline view-details">View Details</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal for plan details -->
+    <div id="planModal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+        <button class="modal-close" aria-label="Close">&times;</button>
+        <h3 id="modalPlanName"></h3>
+        <p id="modalPortions"></p>
+        <p id="modalDuration"></p>
+        <p id="modalPrice" class="price"></p>
+
+        <!-- Subscription options -->
+        <div class="sub-options">
+        <label>
+            <input type="radio" name="subDuration" value="2 weeks" checked> 2 Weeks
+        </label>
+        <label>
+            <input type="radio" name="subDuration" value="1 month"> 1 Month
+        </label>
+        <label>
+            <input type="radio" name="subDuration" value="1 year"> 1 Year
+        </label>
+        </div>
+
+        <button id="addCartBtn" class="btn btn-primary">Add to Cart</button>
+    </div>
+    </div>
+
+    <!-- Cart Drawer -->
+    <div id="cartDrawer" class="cart-drawer" aria-hidden="true">
+    <div class="cart-header">
+        <h3>Cart</h3>
+        <button id="closeCartBtn" aria-label="Close Cart">&times;</button>
+    </div>
+    <div id="cartItems" class="cart-items">
+        <!-- Cart items will be rendered here -->
+    </div>
+    <div class="cart-footer">
+        <div class="cart-total">Total: <span id="cartTotal">₹0</span></div>
+        <button id="checkoutBtn" class="btn btn-primary">Checkout</button>
+    </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="section-inner footer-inner">
+        <strong>GKK</strong> — Home-cooked meals
+      </div>
+      <div class="copyright">© <span id="year"></span> GKK</div>
+    </footer>
+  </div>
+
+  <script src="home.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
